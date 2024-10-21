@@ -3,7 +3,16 @@ strin = 'Hola'
 num = 1
 bandera = True
 
-def listas(lista):
-    return print(type(lista))
+def comprobarTipo(valor,tipo):
+    resultado = isinstance(valor,tipo)
 
-listas(lista)
+    if resultado == True:
+        print(f'El tipo de datos es correcto')
+    else:
+        return print('El tipo no coincide.')
+    
+
+comprobarTipo(lista,int)
+comprobarTipo(strin,int)
+comprobarTipo(num,int)
+comprobarTipo(bandera,list)

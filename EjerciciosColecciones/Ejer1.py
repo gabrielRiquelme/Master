@@ -16,14 +16,19 @@ print(f'La lista ordenada se ve asi: {numeros}')
 
 print(f'La longitud de la lista es: {len(numeros)}')
 
-num = int(input('Ingrese un numero para buscarlo en la lista: '))
-comprobar = isinstance(num,int)
 
-while not comprobar or num <= 0:
+try:
     num = int(input('Ingrese un numero para buscarlo en la lista: '))
-else:
-    if num in numeros:
-        print(f'El numero {num} se encuentra en la lista en la posicion {numeros.index(num)}')
+    comprobar = isinstance(num,int)
+
+    while not comprobar or num <= 0:
+        num = int(input('Ingrese un numero para buscarlo en la lista: '))
     else:
-        print(f'El numero {num} no se encuentra en la lista.')
+        if num in numeros:
+            print(f'El numero {num} se encuentra en la lista en la posicion {numeros.index(num)}')
+        else:
+            print(f'El numero {num} no se encuentra en la lista.')
+
+except:
+    print('NO se ha ingresado un numero, verifique que se este ingresando la informacion correctamente')
 
