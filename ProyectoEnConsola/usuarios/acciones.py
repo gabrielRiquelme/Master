@@ -1,5 +1,5 @@
 import usuarios.usuario as modelo
-
+import notas.acciones
 
 class Acciones():
     
@@ -19,27 +19,57 @@ class Acciones():
         else:
             print('NO se a registrado correctamente, intente nuevamente')
 
-    def login(self):
-        print('Perfecto, ingrese sus credenciales')
-
-    try:
-        email = input('Cual es tu email?: ')
-        password = input('Cual es tu contraseña?: ')
-
-        usuario = modelo.Usuario('', '',email, password)
-
-        logueoUser,datos = usuario.identificar()
-        
-        if logueoUser:
-            print(f'BIenvenido {datos[1]},te has logueado en el sistema a las {datos[5]}')
-            self.proximasAcciones(datos)
-        else:
-            print('Logueo incorrecto, verifique sus datos.')
     
-    except Exception as e:
-        #print(type(e))
-        #print(type(e).__name__)
-        print(f"Login incorrecto! intentalo mas tarde.")
+    def login(self):
+    
+        try:
+            print('Perfecto, ingrese sus credenciales')
+
+        
+            email = input('Cual es tu email?: ')
+            password = input('Cual es tu contraseña?: ')
+
+            usuario = modelo.Usuario('', '',email, password)
+
+            logueoUser,datos = usuario.identificar()
+            
+            if logueoUser:
+                print(f'BIenvenido {datos[1]},te has logueado en el sistema a las {datos[5]}')
+                return self.proximasAcciones(datos)
+            else:
+                print('Logueo incorrecto')
+
+        except Exception as e:
+            print(type(e))
+            print(type(e).__name__)
+            print(f"Login incorrecto! intentalo mas tarde.")
 
     def proximasAcciones(self,datos):
-        pass
+        print("""
+        Acciones disponibles:
+            -Crear notas(crear - 1)
+            -Mostrar tus notas(mostrar - 2)
+            -Eliminar(eliminar - 3)
+            -Salir(Salir - 4)
+        """)
+
+        accion = input("¿Que quieres hacer?")
+        hazEl = notas.acciones.Acciones()
+
+
+        if accion == 'crear' or accion == '1':
+            hazEl.crear(datos)
+            self.proximasAcciones(datos)
+
+        elif accion == 'mostrar' or accion == '2':
+            hazEl.mostrar(datos)
+            self.proximasAcciones(datos)
+
+        elif accion == 'eliminar' or accion == '3':
+            hazEl.borrar(datos)
+            self.proximasAcciones(datos)
+
+        elif accion == 'salir' or accion == '4':
+            print('Perfecto vamos a salir')
+            exit()
+    
