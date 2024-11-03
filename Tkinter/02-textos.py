@@ -18,10 +18,24 @@ texto.pack()
 
 texto = Label(ventana,text="Aguante messi")
 texto.config(
-            width=400,
-            height=400,
+            width=100,
+            height=100,
             bg="orange"
 )
 texto.pack(anchor=E)
+
+
+def pruebas(nombre,apellido,pais):
+    return f"Hola {nombre}{apellido} veo que eres de {pais}"
+
+texto = Label(ventana,text=pruebas(nombre='Juan',apellido='Riquelme',pais='Argentina'))
+texto.config(
+            height=3,
+            font=('Arial',18),
+            padx=10,
+            pady=10,
+            bg="green"
+)
+texto.pack(anchor=NW)
 
 ventana.mainloop()
