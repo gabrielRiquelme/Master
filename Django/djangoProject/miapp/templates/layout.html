@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title%}
+
+        {% endblock%}
+        |Sitio web Django
+    </title>
+</head>
+
+<body>
+
+    <h1>Sitio WEB con Django | RJ</h1>
+    <hr />
+    <ul>
+
+        <li> <a href="/inicio"> Inicio </a></li>
+
+        <li> <a href="/hola-mundo">Hola mundo</a></li>
+
+        <li> <a href="/pag-pruebas">pag-pruebas</a></li>
+
+        <li> <a href="/contacto">contacto</a></li>
+    </ul>
+    <hr />
+    <dir id="content">
+        {% block content%}
+
+        <!--COdigo que vienve de templates-->
+
+        {% endblock%}
+    </dir>
+    <hr />
+    <footer>
+        Master en Python &copy; Juan Riquelme
+    </footer>
+</body>
+
+</html>
