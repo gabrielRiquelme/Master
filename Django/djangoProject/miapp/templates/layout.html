@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,31 +11,49 @@
         {% endblock%}
         |Sitio web Django
     </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
+    <header>
+        <div id="logotipo">
+        <img src="{% static 'images/logo.png' %}"/>
+        <h1>Sitio WEB con Django | RJ</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
 
-    <h1>Sitio WEB con Django | RJ</h1>
-    <hr />
-    <ul>
+            <li> <a href="/inicio"> Inicio </a></li>
+    
+            <li> <a href="/hola-mundo">Hola mundo</a></li>
+    
+            <li> <a href="/pag-pruebas">pag-pruebas</a></li>
+    
+            <li> <a href="/contacto">contacto</a></li>
+        </ul>
+    </nav>
 
-        <li> <a href="/inicio"> Inicio </a></li>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
 
-        <li> <a href="/hola-mundo">Hola mundo</a></li>
+    <div id="content">
+        <div class="box">
+            <h2 class="title"></h2>
+            {% block content%}
 
-        <li> <a href="/pag-pruebas">pag-pruebas</a></li>
+            <!--COdigo que vienve de templates-->
+            <strong>COntenido bloque original</strong>
 
-        <li> <a href="/contacto">contacto</a></li>
-    </ul>
-    <hr />
-    <dir id="content">
-        {% block content%}
+            {% endblock%}
+        </div>
 
-        <!--COdigo que vienve de templates-->
+    </div>
 
-        {% endblock%}
-    </dir>
-    <hr />
     <footer>
         Master en Python &copy; Juan Riquelme
     </footer>

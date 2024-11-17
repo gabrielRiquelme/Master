@@ -8,7 +8,9 @@ from django.shortcuts import render,HttpResponse,redirect
 layout = ""
 
 def index(request):
+    """
     html =""
+
     year = 2021
     while year <= 2050:
         if year % 2 ==0:
@@ -16,8 +18,18 @@ def index(request):
         year +=1
         
     html += "</ul>"
+    """
+    year = 2021
+    hasta = range(year,2051)
+    nombre = 'Juan Riquelme'
+    lenguajes = ['Javascript','python','php','c']
 
-    return render(request,'index.html')
+    return render(request,'index.html',{
+        'title':'Inicio',
+        'mi_variable':'Soy un dato de la vista',
+        'nombre':nombre,
+        'lenguajes':lenguajes
+    })
 
 def hola_mundo(request):
     return render(request,'hola-mundo.html')

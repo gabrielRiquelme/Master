@@ -1,11 +1,36 @@
 {% extends 'layout.html' %}
 
-{%block title%}Inicio{%endblock%}
+{%block title%}{{title}}{%endblock%}
 
 {% block content %}
 
-<h1>Hola mundo con Django!</h1>
-<p>Años hasta el 2050</p>
+{% comment "Esto es un comentario." %}
+    nota
+{% endcomment %}
+
+<h1 class="title">{{title}}</h1>>Hola mundo con Django!</h1>
+
+
+<p>{{mi_variable}}</p>
+
+{% if nombre and nombre == 'Juan Riquelme' %}
+    <p>{{nombre}}</p>
+{% else %}
+    <p>EL nombre noe existe</p>
+{% endif %}
+
+<h3>listado lenguajes programacion</h3>
 <ul>
+    {% for lenguaje in lenguajes %}
+        <li>{{forloop.counter}} {{lenguaje}} {{forloop.first}} {{forloop.last}}  </li>
+    {%empty%}
+        <p>NO HAY LENGUAJES</p>
+    {%endfor%}
+</ul>
+
+
+
+<p>Años hasta el 2050</p>
+
 
 {% endblock %}
