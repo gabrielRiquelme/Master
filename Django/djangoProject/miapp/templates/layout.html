@@ -11,6 +11,7 @@
         {% endblock%}
         |Sitio web Django
     </title>
+
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
@@ -25,13 +26,13 @@
     <nav>
         <ul>
 
-            <li> <a href="/inicio"> Inicio </a></li>
+            <li> <a href="{% url 'index'%}"> Inicio </a></li>
     
-            <li> <a href="/hola-mundo">Hola mundo</a></li>
+            <li> <a href="{% url 'hola_mundo'%}">Hola  mundo</a></li>
     
-            <li> <a href="/pag-pruebas">pag-pruebas</a></li>
+            <li> <a href="{% url 'pag_pruebas'%}">pag-pruebas</a></li>
     
-            <li> <a href="/contacto">contacto</a></li>
+            <li> <a href="{% url 'contacto' 'Juan' 'Riquelme' %}">contacto</a></li>
         </ul>
     </nav>
 
@@ -55,7 +56,7 @@
     </div>
 
     <footer>
-        Master en Python &copy; Juan Riquelme
+        Master en Python &copy; Juan Riquelme - {% now "d/m/Y"%}
     </footer>
 </body>
 

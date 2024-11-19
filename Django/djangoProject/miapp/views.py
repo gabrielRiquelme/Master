@@ -28,7 +28,9 @@ def index(request):
         'title':'Inicio',
         'mi_variable':'Soy un dato de la vista',
         'nombre':nombre,
-        'lenguajes':lenguajes
+        'lenguajes':lenguajes,
+        'years':hasta,
+
     })
 
 def hola_mundo(request):
@@ -39,7 +41,10 @@ def pagina(request,redirigir=0):
     if redirigir == 1:
         return redirect('contacto',nombre='Juan',apellido='Riquelme')
 
-    return render(request,'pagina.html')
+    return render(request,'pagina.html',{
+        'texto':'',
+        'lista':[1,2,3]
+    })
 
 #ejemplo utilizando httpresponse
 def contacto(request,nombre="",apellido=""):

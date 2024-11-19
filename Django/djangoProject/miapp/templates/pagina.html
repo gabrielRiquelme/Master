@@ -5,6 +5,20 @@
 {%block content%}
 
 <h1 class="title">Pagina de mi web</h1>
-<h3>Echo por Juan!</h3>
+<!--Filtro cut, existen cientos de filtros. paginas - django template filters 8-->
+<h3>{{"Echo por Juan!"|cut:'o'}}</h3>
+{{texto|default:"No hay nada"}}
+<p></p>
+<p>{{lista|first}}</p>
+<p>{{lista|last}}</p>
+<p>{{lista|length}}</p>
+<p>{{'Texto pruebas'|length}}</p>
+<p>{{'Texto pruebas'|upper}}</p>
+<p>{{'TeXTO pruebas'|lower}}</p>
+<p>{{'Texto pruebas'|random}}</p>
+<p>{{lista|join:', '}}</p>
+{%load filters%}
+{{'Juan Riquelme'|saludo|safe}}
+
 
 {%endblock%}

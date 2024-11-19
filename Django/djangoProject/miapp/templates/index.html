@@ -4,11 +4,13 @@
 
 {% block content %}
 
+
+
 {% comment "Esto es un comentario." %}
     nota
 {% endcomment %}
 
-<h1 class="title">{{title}}</h1>>Hola mundo con Django!</h1>
+<h1 class="title">{{title}}</h1>Hola mundo con Django!</h1>
 
 
 <p>{{mi_variable}}</p>
@@ -28,9 +30,6 @@
     {%endfor%}
 </ul>
 
-
-
-<p>Años hasta el 2050</p>
-
+{% include 'fechaactual.html' with saludo="Hola mundo desde index"%}
 
 {% endblock %}
