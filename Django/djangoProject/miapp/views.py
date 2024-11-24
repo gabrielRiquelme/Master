@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from miapp.models import Article, Category
 from django.db.models import Q
 from miapp.forms import Form_article
+from django.contrib import messages
 # Create your views here.
 # MVC = Modelo vista controlador == Acciones (metodos)
 # MVT = Modelo template vista == Acciones (metodos)
@@ -66,7 +67,7 @@ def crear_articulo(request,title,content, public):
     )
 
     articulo.save()
-    return HttpResponse(f'Articulo creado:{articulo.title}-{articulo.content}')
+    #return HttpResponse(f'Articulo creado:{articulo.title}-{articulo.content}')
     
 def mostrar_articulo(request):
 
@@ -78,12 +79,6 @@ def mostrar_articulo(request):
 
     return HttpResponse(response)
 
-def create_full_article(request):
-    formulario = Form_article()
-
-    return render(request,'create_full_article.html',{
-        'form':formulario
-    })
 
 
 def editar_articulo(request,id):
@@ -153,3 +148,36 @@ def borrar_articulo(request,id):
     articulo.delete()
 
     return redirect('articulos')
+
+def create_full_article(request):
+
+    if request.method == 'POST':
+        formulario = Form_article(request.POST)
+
+        if formulario.is_valid():
+            data_form = formulario.cleaned_data
+
+            title = data_form.get('title')
+            content = data_form['content']
+            public = data_form['public']
+
+            articulo=Article(
+            title= title,
+            content= content,
+            public= public
+            )
+
+            articulo.save()
+
+            #Crear mensaje Flash (Sesion que se muestra 1 vez)
+
+            messages.success(request,f'Haz creado correctamente el articulo {articulo.id}')
+            
+            return redirect('articulos')
+            #return HttpResponse(articulo.title + '' + articulo.content + '' + str(articulo.public))
+    else:
+        formulario = Form_article()
+
+    return render(request,'create_full_article.html',{
+            'form':formulario
+        })

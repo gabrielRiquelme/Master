@@ -6,6 +6,14 @@
 
 <h1 class="title">FORMULARIOS DJANGO</h1>
 
+{% if form.errors %}
+
+    <strong class='rojo'>
+        existen errores en el form.
+    </strong>
+
+{% endif %}
+
 <form action="" method="POST">
 
     {% csrf_token %}

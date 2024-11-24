@@ -198,3 +198,16 @@ footer{
     box-shadow: 0px 0px 20px gray;
     margin: 0 auto;
 }
+
+.rojo{
+    color: red;
+    box-shadow: 0px 0px 4px black;
+}
+
+.messages{
+    padding: 20px;
+    background:#1f7e58;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
