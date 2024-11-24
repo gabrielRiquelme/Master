@@ -30,5 +30,13 @@ urlpatterns = [
     path('pag-pruebas/<int:redirigir>', views.pagina,name='pag_pruebas'),
     path('contacto/', views.contacto,name='contacto'),
     path('contacto/<str:nombre>', views.contacto,name='contacto'),
-    path('contacto/<str:nombre>/<str:apellido>', views.contacto,name='contacto')
+    path('contacto/<str:nombre>/<str:apellido>', views.contacto,name='contacto'),
+    path('crear_articulo/<str:title>/<str:content>/<str:public>',views.crear_articulo,name='crear_articulo'),
+    path('mostrar_articulo/',views.mostrar_articulo,name='mostrar_articulo'),
+    path('editar_articulo/<int:id>',views.editar_articulo),
+    path('articulos/', views.articulos,name='articulos'),
+    path('borrar_articulo/<int:id>', views.borrar_articulo,name='borrar_articulo'),
+    path('save_article/', views.save_article,name='save_article'),
+    path('create_article/', views.create_article,name='create_article'),
+    path('create_full_article/', views.create_full_article,name='create_full_article')
 ]

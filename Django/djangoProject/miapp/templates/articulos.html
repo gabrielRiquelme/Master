@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{%block title%}Listado articulos: {%endblock%}
+
+{% block content %}
+
+    <h1 class="title">Listado articulos: </h1>
+
+    <ul>
+        {% for articulo in articulos %}
+            <li>{{articulo.id}}. {{articulo.title}}</li>
+            <p>{{articulo.content}}</p>
+            <p>{{articulo.create_at}}</p>
+
+            <a href="{% url 'borrar_articulo' articulo.id %}">ELiminar</a>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

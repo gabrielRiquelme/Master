@@ -1,0 +1,19 @@
+{% extends 'layout.html'%}
+
+{%block title%}FORMULARIOS DJANGO{%endblock%}
+
+{%block content%}
+
+<h1 class="title">FORMULARIOS DJANGO</h1>
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    {{form.as_ul}}
+
+    <input type="submit" value="Guardar"/>
+</form>
+
+
+{%endblock%}
