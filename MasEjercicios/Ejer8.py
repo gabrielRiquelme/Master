@@ -1,16 +1,27 @@
 import csv
 
-def procesa_archivos(url):
+def leer_archivo_separado(url):
+    datos = []
+    with open(url, 'r', encoding='utf-8') as archivo:
+        lector_csv = csv.reader(archivo, delimiter=';')  # Especificamos el punto y coma como separador
+        for fila in lector_csv:
+            datos.append(fila)
+    return datos
 
-    try: 
-        with open (url,'r',encoding='UTF-8') as notas:
-            variableNotas = csv.reader (notas,delimiter=',')
-            for fila in variableNotas:
-                print(fila)
-    except Exception:
-        print('No se pudo abrir archivo')
+def gendic(lista):
+    cabecera = lista[0]
+    info = lista[1:]
+    lista_diccionario=[]
 
+    for i in range(len(info)):
+        diccionario[cabecera[i]]=info[i]
+        lista_diccionario.append(diccionario)
+        return lista_diccionario
 
-# Main
-url = r'C:\Users\sofia\OneDrive\Documentos\Master\MasEjercicios\calificaciones.csv'
-procesa_archivos(url)
+url = r'C:\Users\Juan G. Riquelme\OneDrive - Grupo Hasar\Documentos\Personal\Master\MasEjercicios\calificaciones.csv'
+diccionario={}
+lista_diccionario=[]
+lista = leer_archivo_separado(url)
+procesado = gendic(lista)
+print(procesado)
+
