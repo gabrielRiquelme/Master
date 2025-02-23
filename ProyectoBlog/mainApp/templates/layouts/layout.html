@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title%}
+
+        {% endblock%}
+        |Sitio web Django
+    </title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <div id="logotipo">
+        <img src="{% static 'images/logo.png' %}"/>
+        <h1>Sitio WEB con Django | RJ</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+
+            <li> <a href="{% url 'index'%}"> Inicio </a></li>
+            {%for page in pages %}
+                <li> <a href="#">{{ page.1}}</a></li>
+
+            
+                
+            {%endfor%}
+
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+            <h2 class="title"></h2>
+            {% block content%}
+
+            <!--COdigo que vienve de templates-->
+            <strong>COntenido bloque original</strong>
+
+            {% endblock%}
+        </div>
+
+    </div>
+
+    <footer>
+        Master en Python &copy; Juan Riquelme - {% now "d/m/Y"%}
+    </footer>
+</body>
+
+</html>
