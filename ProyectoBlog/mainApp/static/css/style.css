@@ -177,12 +177,25 @@ nav ul li a:hover{
 }
 
 
-.title{
+.title {
     color: #444;
     letter-spacing: 1px;
     font-size: 30px;
     margin-bottom: 10px;
+    margin-top: 5px;
 }
+
+.fecha {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: gray;
+}
+
+.contenido {
+    line-height: 15px;
+}
+
 
 /*Pie de pagina*/
 
@@ -211,3 +224,6 @@ footer{
     text-align: center;
     margin-bottom: 10px;
 }
+
+
+

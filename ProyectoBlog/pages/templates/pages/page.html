@@ -1,13 +1,11 @@
-{% extends 'layouts/layout.html'%}
+{% extends 'layouts/layout.html' %}
 
-{%block tittle%}<h1>{{page.title}}</h1>{%endblock%}
+{% block title %}<h1>{{ page.title }}</h1>{% endblock %}
 
-{%block content%}
-<h1>{{page.title}}</h1>
-<span>
-    {{page.created_at}}
-</span>
-<p>
-    {{page.content}}
-</p>
-{%endblock%}
+{% block content %}
+    <h1 class="title">{{page.title}}</h1>
+    <span class="fecha">{{ page.created_at }}</span>
+    <p class="contenido">
+        {{ page.content }}
+    </p>
+{% endblock %}
