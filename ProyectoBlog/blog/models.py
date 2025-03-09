@@ -19,9 +19,9 @@ class Category(models.Model):
         
         
 class Article(models.Model):
-    title = models.CharField(max_length=150,verbose_name='Titulo')
+    tittle = models.CharField(max_length=150,verbose_name='Titulo')
     content = RichTextField(verbose_name='Contenido')
-    image = models.ImageField(default='null',verbose_name='Imagen')
+    image = models.ImageField(default='null',verbose_name='Imagen',upload_to='articles')
     public = models.BooleanField(verbose_name='Publicado?')
     user = models.ForeignKey(User,verbose_name='Usuario',on_delete=models.CASCADE,editable=False)
     categories = models.ManyToManyField(Category,verbose_name='categorias',blank=True)
@@ -31,6 +31,7 @@ class Article(models.Model):
     class Meta:
         verbose_name= 'Articulo'
         verbose_name_plural = 'Articulos'
+        ordering = ["-created_at"]
         
     def __str__(self):
-        return self.title
+        return self.tittle
